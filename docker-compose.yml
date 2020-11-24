@@ -3,10 +3,10 @@ services:
   clientfluent:
     image: fluent/fluentd
     volumes:
-      - ./client_fluentd.conf:fluentd/etc/fluent.conf
+      - ./client_fluentd.conf:/fluentd/etc/fluent.conf
     ports: 
       - 24224:24224
   serverfluent:
     image: fluent/fluentd
     volumes:
-      - ./server_fluentd.conf:fluentd/etc/fluent.conf
+      - ./server_fluentd.conf:/fluentd/etc/fluent.conf
