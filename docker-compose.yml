@@ -4,9 +4,12 @@ services:
     image: fluent/fluentd
     volumes:
       - ./client_fluentd.conf:/fluentd/etc/fluent.conf
+      - ./fluentd.crt:/etc/certs/fluentd.crt
     ports: 
       - 24224:24224
   serverfluent:
     image: fluent/fluentd
     volumes:
       - ./server_fluentd.conf:/fluentd/etc/fluent.conf
+      - ./fluentd.crt:/etc/certs/fluentd.crt
+      - ./fluentd.key:/etc/certs/fluentd.key
