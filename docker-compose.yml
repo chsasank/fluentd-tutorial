@@ -5,8 +5,15 @@ services:
     volumes:
       - ./client_fluentd.conf:/fluentd/etc/fluent.conf
       - ./fluentd.crt:/etc/certs/fluentd.crt
-    ports: 
+    ports:
       - 24224:24224
+  clientfluentbit:
+    image: fluent/fluent-bit
+    volumes:
+      - ./client_fluentbit.conf:/fluent-bit/etc/fluent-bit.conf
+      - ./fluentd.crt:/etc/certs/fluentd.crt
+    ports:
+      - 24225:24224
   serverfluent:
     image: fluent/fluentd
     volumes:
